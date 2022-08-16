@@ -75,7 +75,7 @@ async function getProductReviews(req, res, next) {
         id: Number(id),
       },
     });
-    res.json(product);
+    res.json({ratings:product});
   } catch (err) {
     console.error("Error while getting Products", err.message);
     next(err);
