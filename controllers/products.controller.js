@@ -16,7 +16,7 @@ async function getProductsById(req, res, next) {
   try {
     const id = req.params.id;
 
-    const product = await prisma.products.findMany({
+    const product = await prisma.products.find({
       where: {
         id: Number(id),
       },
