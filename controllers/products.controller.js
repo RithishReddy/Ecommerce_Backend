@@ -55,12 +55,15 @@ async function getProductReviews(req, res, next) {
   try {
     const id = req.params.id;
 
-    const product = await prisma.ratings.findMany({
+    const product = await prisma.products.findUnique({
       where: {
         id: Number(id),
       },
+      select:{
+        ratings:true
+      }
     });
-    res.json({ratings:product});
+    res.json(product);
   } catch (err) {
     console.error("Error while getting Products", err.message);
     next(err);
