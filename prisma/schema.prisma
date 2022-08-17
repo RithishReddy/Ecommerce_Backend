@@ -10,9 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-
-
 model Products {
   id          Int       @id @default(autoincrement())
   createdAt   DateTime  @default(now())
@@ -20,16 +17,14 @@ model Products {
   name        String    @db.VarChar(255)
   description String    @db.VarChar(255)
   image       String    @db.VarChar(255)
-  category    String
+  category    Category
   quantity    Int
   price       Int
   variants    Json
   ratings     Ratings[]
 
-  @@map(name:"products")
+  @@map(name: "products")
 }
-
-
 
 model Ratings {
   id         Int      @id @default(autoincrement())
@@ -39,5 +34,11 @@ model Ratings {
   product    Products @relation(fields: [product_id], references: [id])
   product_id Int
 
-  @@map(name:"ratings")
+  @@map(name: "ratings")
+}
+
+enum Category {
+  KITCHEN
+  ELECTRONICS
+  MOBILES
 }
