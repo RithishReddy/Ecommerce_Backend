@@ -38,5 +38,4 @@ enum Category {
   PRODUCTS
   KITCHEN
   ELECTRONICS
-  Mobiles
 }
