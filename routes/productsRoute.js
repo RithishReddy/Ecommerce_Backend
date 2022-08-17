@@ -9,7 +9,4 @@ router.post('/create',productsController.createProduct)
 router.get('/:id/reviews',productsController.getProductReviews)
 router.post('/:id/reviews/create',productsController.createProductReview)
 
-
-
-
 module.exports = router;
